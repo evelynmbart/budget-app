@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 //helper functions
 import { toast } from "react-toastify";
 import { Intro } from "../components/Intro";
-import { createBudget, fetchData, waait } from "../helpers";
+import { createBudget, createExpense, fetchData, waait } from "../helpers";
 
 import { AddBudgetForm } from "../components/AddBudgetForm";
 import { AddExpenseForm } from "../components/AddExpenseForm";
@@ -39,6 +39,21 @@ export async function dashboardAction({ request }) {
       return toast.success("Budget created!");
     } catch (e) {
       throw new Error("There was an error creating your budget.");
+    }
+  }
+
+  if (_action === "createExpense") {
+    try {
+      // create expense
+      createExpense({
+        name: values.newExpense,
+        amount: values.newExpenseAmount,
+        budgetId: values.newExpenseBudget,
+      });
+
+      return toast.success(`Expense ${values.newExpense} created!`);
+    } catch (e) {
+      throw new Error("There was an error creating your expense.");
     }
   }
 }
