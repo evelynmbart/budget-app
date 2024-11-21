@@ -1,10 +1,10 @@
 //rrd imports
 import { useLoaderData } from "react-router-dom";
 //helper functions
+import { toast } from "react-toastify";
 import { Intro } from "../components/Intro";
 import { fetchData } from "../helpers";
 
-import { toast } from "react-toastify";
 import { AddBudgetForm } from "../components/AddBudgetForm";
 
 export const dashboardLoader = () => {
@@ -16,24 +16,17 @@ export const dashboardLoader = () => {
 //action
 export async function dashboardAction({ request }) {
   const data = await request.formData();
-  const formData = Object.fromEntries(data);
-  try {
-    localStorage.setItem("userName", JSON.stringify(formData.userName));
-    return toast.success(`Welcome, ${formData.userName}`);
-  } catch (e) {
-    throw new Error("There was an error creating your account");
+  const { _action, ...values } = Object.fromEntries(data);
+  //new user submission
+  if (_action === "newUser") {
+    try {
+      localStorage.setItem("userName", JSON.stringify(values.userName));
+      return toast.success(`Welcome, ${values.userName}`);
+    } catch (e) {
+      throw new Error("There was an error creating your account");
+    }
   }
 }
-
-// export async function dashboardAction({ request }) {
-//   const data = await request.formData();
-//   const formData = Object.fromEntries(data)
-//   try {
-//     throw new Error('Ya done')
-//   } catch (e) {
-//     throw new Error("There was a problem creating your account.")
-//   }
-// }
 
 export function Dashboard() {
   const { userName, budgets } = useLoaderData();
@@ -46,7 +39,6 @@ export function Dashboard() {
             Welcome back, <span className="accent">{userName}</span>
           </h1>
           <div className="grid-sm">
-            {/* {budgets ? } */}
             <div className="grid-lg">
               <div className="flex-lg">
                 <AddBudgetForm />
