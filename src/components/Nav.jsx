@@ -8,7 +8,7 @@ export function Nav({ userName }) {
         <img src={logomark} alt="House logo" height={30} />
         <span>HomeBudget</span>
       </NavLink>
-      {userName && (
+      {!!userName && (
         <Form
           method="post"
           action="/logout"

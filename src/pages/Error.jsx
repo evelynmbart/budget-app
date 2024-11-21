@@ -1,7 +1,53 @@
+import { Link, useNavigate, useRouteError } from "react-router-dom";
+
 export function Error() {
+  const error = useRouteError();
+  const navigate = useNavigate();
+
   return (
-    <div>
-      <h2>You've made a grave error</h2>
+    <div className="error">
+      <h1>Oh no! You've made a grave mistake!</h1>
+      <p>{error.message || error.statusText}</p>
+      <div className="flex-md">
+        <button className="btn btn--dark" onClick={() => navigate(-1)}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6"
+            width={25}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            />
+          </svg>
+
+          <span>Go Back</span>
+        </button>
+        <Link to="/" className="btn btn--dark">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6"
+            width={25}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+            />
+          </svg>
+
+          <span>Go Home</span>
+        </Link>
+      </div>
     </div>
   );
 }
