@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { logoutAction } from "./actions/logout";
-import "./App.css";
 import { Main, mainLoader } from "./layouts/Main";
 import { Dashboard, dashboardLoader } from "./pages/Dashboard";
 
@@ -17,7 +16,7 @@ const router = createBrowserRouter([
         index: true,
         element: <Dashboard />,
         loader: dashboardLoader,
-        errorElement: <Error />,
+        // action: dashboardAction,
       },
       {
         path: "logout",

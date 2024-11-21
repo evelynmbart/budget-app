@@ -1,3 +1,7 @@
 export function Error() {
-  return <div>Error</div>;
+  return (
+    <div>
+      <h2>You've made a grave error</h2>
+    </div>
+  );
 }
