@@ -19,11 +19,9 @@ export function Table({ expenses }) {
           </tr>
         </thead>
         <tbody>
-          Hello
           {expenses.map((expense) => {
             return (
               <tr key={expense.id}>
-                World
                 <ExpenseItem expense={expense} />
               </tr>
             );
