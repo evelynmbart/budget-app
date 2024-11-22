@@ -7,6 +7,7 @@ import { createBudget, createExpense, fetchData, waait } from "../helpers";
 
 import { AddBudgetForm } from "../components/AddBudgetForm";
 import { AddExpenseForm } from "../components/AddExpenseForm";
+import { BudgetItem } from "../components/BudgetItem";
 
 export const dashboardLoader = () => {
   const userName = fetchData("userName");
@@ -61,6 +62,8 @@ export async function dashboardAction({ request }) {
 const Dashboard = () => {
   const { userName, budgets } = useLoaderData();
 
+  console.log(budgets);
+
   return (
     <>
       {userName ? (
@@ -74,6 +77,12 @@ const Dashboard = () => {
                 <div className="flex-lg">
                   <AddBudgetForm />
                   <AddExpenseForm budgets={budgets} />
+                  <h2>Existing Budgets</h2>
+                  <div className="budgets">
+                    {budgets.map((budget) => (
+                      <BudgetItem key={budget.id} budget={budget} />
+                    ))}
+                  </div>
                 </div>
               </div>
             ) : (

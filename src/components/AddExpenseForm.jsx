@@ -57,8 +57,9 @@ export function AddExpenseForm({ budgets }) {
             {budgets
               .sort((a, b) => a.createdAt - b.createdAt)
               .map((budget) => {
+                console.log(budget);
                 return (
-                  <option key={budget.id} value={budget.value}>
+                  <option key={budget.id} value={budget.id}>
                     {budget.name}
                   </option>
                 );

@@ -40,3 +40,40 @@ export const createExpense = ({ name, amount, budgetId }) => {
     const existingExpenses = fetchData('expenses') ?? [];
     return localStorage.setItem('expenses', JSON.stringify([...existingExpenses, newItem]));
 }
+
+//total spent by budget
+export const calculateSpentByBudget = (budgetId) => {
+
+    const expenses = fetchData("expenses") ?? [];
+    console.log(expenses)
+
+    const budgetSpent = expenses.reduce((acc, expense) => {
+        console.log('comparing', budgetId, expense.budgetId)
+        // check if expense.id === budgetId I passed in
+        if (expense.budgetId !== budgetId) return acc
+
+        // add the current amount to my total
+        return acc += expense.amount
+    }, 0)
+
+    console.log(budgetSpent)
+    return budgetSpent
+}
+
+//FORMATTING
+
+//formatting percentages
+export const formatPercentage = (amt) => {
+    return amt.toLocaleString(undefined, {
+        style: 'percent',
+        minimumFractionDigits: 0
+    })
+}
+
+//Format currency
+export const formatCurrency = (amt) => {
+    return amt.toLocaleString(undefined, {
+        style: 'currency',
+        currency: 'USD'
+    })
+}
