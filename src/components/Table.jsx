@@ -7,13 +7,12 @@ import { ExpenseItem } from "./ExpenseItem";
 () => <div />;
 
 export function Table({ expenses }) {
-  console.log("expenses", expenses);
   return (
     <div className="table">
       <table>
         <thead>
           <tr>
-            {["Name", "Amount", "Date"].map((i, index) => (
+            {["Name", "Amount", "Date", "Budget", ""].map((i, index) => (
               <th key={index}>{i}</th>
             ))}
           </tr>
