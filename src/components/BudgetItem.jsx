@@ -8,8 +8,6 @@ export function BudgetItem({ budget }) {
   const { id, name, amount, color } = budget;
   const spent = calculateSpentByBudget(id);
 
-  console.log(spent);
-
   return (
     <div
       className="budget"

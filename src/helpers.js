@@ -45,10 +45,9 @@ export const createExpense = ({ name, amount, budgetId }) => {
 export const calculateSpentByBudget = (budgetId) => {
 
     const expenses = fetchData("expenses") ?? [];
-    console.log(expenses)
+
 
     const budgetSpent = expenses.reduce((acc, expense) => {
-        console.log('comparing', budgetId, expense.budgetId)
         // check if expense.id === budgetId I passed in
         if (expense.budgetId !== budgetId) return acc
 
@@ -56,7 +55,7 @@ export const calculateSpentByBudget = (budgetId) => {
         return acc += expense.amount
     }, 0)
 
-    console.log(budgetSpent)
+
     return budgetSpent
 }
 
