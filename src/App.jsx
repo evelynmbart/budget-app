@@ -1,6 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { deleteBudget } from "./actions/deleteBudget";
 import { logoutAction } from "./actions/logout";
+
 import ExpensesPage, {
   expensesAction,
   expensesLoader,
@@ -30,6 +32,12 @@ const router = createBrowserRouter([
         loader: budgetLoader,
         action: budgetAction,
         errorElement: <Error />,
+        children: [
+          {
+            path: "delete",
+            action: deleteBudget,
+          },
+        ],
       },
       {
         path: "expenses",
