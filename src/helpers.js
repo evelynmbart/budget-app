@@ -15,6 +15,12 @@ export const deleteItem = ({ key }) => {
     return localStorage.removeItem(key)
 }
 
+//get all items from local storage 
+export const getAllMatchingItems = ({ category, key, value }) => {
+    const data = fetchData(category) ?? [];
+    return data.filter((item) => item[key] === value)
+}
+
 //create budget 
 export const createBudget = ({ name, amount }) => {
     const newItem = {
