@@ -1,8 +1,16 @@
-# React + Vite
+# Budgeting App: Take Control of Your Finances
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **Budgeting App**! 💰 The easiest way to manage your money, track expenses, and stay on top of your financial goals. With this app, you can create custom categories and monitor your spending to keep your budget in check.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Custom Categories**: Create any category you need—whether it’s groceries, entertainment, or savings—and track your expenses.
+- **Track Spending**: Log your expenses and see exactly where your money is going.
+- **Stay on Budget**: Set spending limits for each category and get alerts when you’re getting close to your limit.
+
+## Why Budgeting App?
+
+- **Simple & Flexible**: Tailor your budget to your life and track expenses with ease.
+- **Stay Organized**: Keep everything in one place and always know where you stand financially.
+
+Ready to take control of your finances? Start using **Budgeting App** today and make smarter money choices!
